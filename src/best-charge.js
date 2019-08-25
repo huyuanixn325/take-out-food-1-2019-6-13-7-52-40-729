@@ -48,3 +48,16 @@ function firstCaculate(items) {
   }
   return totalPrice;
 }
+
+function secondCaculate(items) {
+  let totalPrice=0;
+  for (let i = 0; i < items.length; i++) {
+    if((items[i].id=='ITEM0001'&&items[i].count>0)||(items[i].id=='ITEM0022'&&items[i].count>0)){
+      totalPrice+=items[i].price/2*items[i].count;
+    }else{
+      totalPrice+=items[i].price*items[i].count;
+    }
+  }
+   
+  return totalPrice;
+}
