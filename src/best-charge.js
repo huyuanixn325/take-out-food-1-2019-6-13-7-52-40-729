@@ -36,3 +36,15 @@ function calculate(items) {
   }
   return totalPrice;
 }
+
+function firstCaculate(items) {
+  const types = loadPromotions();
+  let totalPrice=0;
+  for (let i = 0; i < items.length; i++) {
+    totalPrice+= items[i].count * items[i].price;
+  }
+  if (totalPrice>=30){
+    totalPrice=totalPrice-6;
+  }
+  return totalPrice;
+}
