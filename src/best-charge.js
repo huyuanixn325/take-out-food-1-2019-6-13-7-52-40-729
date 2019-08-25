@@ -61,3 +61,39 @@ function secondCaculate(items) {
    
   return totalPrice;
 }
+
+function printItems(originPrice, firstPrice, secondPrice, items) {
+  let print ="============= 订餐明细 =============\n";
+  for (let i = 0; i < items.length; i++) {
+    if (items[i].id=='ITEM0001')
+      print+=  "黄焖鸡 x "+items[i].count+" = "+(items[i].count*items[i].price)+"元\n";
+    if (items[i].id=='ITEM0013')
+      print+=  "肉夹馍 x "+items[i].count+" = "+(items[i].count*items[i].price)+"元\n" ;
+    if (items[i].id=='ITEM0022')
+      print+= "凉皮 x "+items[i].count+" = "+items[i].count*items[i].price+"元\n";
+  }
+  print+=  "-----------------------------------\n";
+  let minPrice=0;
+  if (firstPrice>=secondPrice){
+    minPrice=secondPrice;
+  }else minPrice=firstPrice;
+
+  if(minPrice==originPrice){
+    print+="总计："+originPrice+"元" +"\n===================================";
+  }
+  if ((originPrice!=firstPrice)&&(minPrice==firstPrice)){
+    print+="使用优惠:\n" +
+      "满30减6元，省"+(originPrice-firstPrice)+"元\n" +  "-----------------------------------\n" +
+      "总计："+firstPrice+"元\n" +
+      "===================================";
+  }
+  if((originPrice!=secondPrice)&&(minPrice==secondPrice)){
+    print+="使用优惠:\n" +
+      "指定菜品半价(黄焖鸡，凉皮)，省"+(originPrice-secondPrice)+"元\n" +
+      "-----------------------------------\n" +
+      "总计："+secondPrice+"元\n" +
+      "===================================";
+  }
+
+  return print;
+}
