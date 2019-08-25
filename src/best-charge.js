@@ -11,3 +11,20 @@ function countItems(selectedItems) {
   }
   return result;
 }
+
+function getItems(countArray) {
+  const dbData = loadAllItems();
+  let items = [];
+  for (let i = 0; i < dbData.length; i++) {
+    for (let j = 0; j < countArray.length; j++)
+      if (dbData[i].id == countArray[j].id) {
+        items.push({
+          id:dbData[i].id,
+          name: dbData[i].name,
+          count: countArray[j].count,
+          price: dbData[i].price
+        });
+      }
+  }
+  return items;
+}
