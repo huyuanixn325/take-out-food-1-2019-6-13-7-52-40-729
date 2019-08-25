@@ -1,5 +1,12 @@
 function bestCharge(selectedItems) {
-  return /*TODO*/;
+ // return /*TODO*/;
+ let countArray = countItems(selectedItems);
+ let itemsArray = getItems(countArray);
+ let originPrice=calculate(itemsArray);
+ let firstPrice=firstCaculate(itemsArray);
+ let secondPrice=secondCaculate(itemsArray);
+ let print = printItems(originPrice,firstPrice,secondPrice,itemsArray);
+ return print;
 }
 function countItems(selectedItems) {
   let result = [];
